@@ -1,7 +1,7 @@
 {
-  "name": "ts-template",
+  "name": "leaderboard-ubq-fi",
   "version": "1.0.0",
-  "description": "Template repository with TypeScript support.",
+  "description": "Active contributor earnings leaderboard for Ubiquity DAO",
   "main": "build/index.ts",
   "author": "Ubiquity DAO",
   "license": "MIT",

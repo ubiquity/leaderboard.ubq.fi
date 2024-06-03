@@ -9,7 +9,7 @@ export async function displayLeaderboard() {
     return;
   }
 
-  const killPopup = displayPopupMessage("Fetching leaderboard...", "This may take a moment if it's your first time.");
+  const killPopup = displayPopupMessage("Fetching leaderboard...", "This may take a couple of moments please wait.");
   await renderLeaderboard();
   killPopup();
 }
