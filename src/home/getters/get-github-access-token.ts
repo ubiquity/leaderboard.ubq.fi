@@ -4,29 +4,23 @@ import { getLocalStore } from "./get-local-store";
 
 export async function getGitHubAccessToken(): Promise<string | null> {
   // better to use official function, looking up localstorage has flaws
-  const oauthToken = await checkSupabaseSession();
+  const authToken = await checkSupabaseSession();
 
-  const expiresAt = oauthToken?.expires_at;
+  const expiresAt = authToken?.expires_at;
   if (expiresAt && expiresAt < Date.now() / 1000) {
     localStorage.removeItem(`sb-${SUPABASE_STORAGE_KEY}-auth-token`);
     return null;
   }
 
-  return oauthToken?.provider_token ?? null;
+  return authToken?.provider_token ?? null;
 }
 
 export function getGitHubUserName(): string | null {
-  const oauthToken = getLocalStore(`sb-${SUPABASE_STORAGE_KEY}-auth-token`) as OAuthToken | null;
-
-  const username = oauthToken?.user?.user_metadata?.user_name;
-  if (username) {
-    return username;
-  }
-
-  return null;
+  const authToken = getLocalStore(`sb-${SUPABASE_STORAGE_KEY}-auth-token`) as OauthToken | null;
+  return authToken?.user?.user_metadata?.user_name ?? null;
 }
 
-export interface OAuthToken {
+export interface OauthToken {
   provider_token: string;
   access_token: string;
   expires_in: number;
