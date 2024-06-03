@@ -31,7 +31,7 @@ export async function pullFromSupabase() {
   return { walletMap, users };
 }
 
-export async function fetchAllLeaderboardDatas() {
+export async function fetchAllLeaderboardData() {
   const octokit = new Octokit({ auth: await getGitHubAccessToken() });
   const addrAndBalances = await fetchLeaderboardDataFromRepo();
 
@@ -74,6 +74,7 @@ export async function fetchLeaderboardDataFromRepo(): Promise<LeaderboardData[]>
     // @TODO: create an action that updates this every 24hrs and pulls from a Ubiquity repo
 
     const path = "leaderboard.csv";
+    // cspell: disable
     const url = "https://github.com/keyrxng/ubq-airdrop-cli";
 
     const { data, status } = await octokit.repos.getContent({

@@ -41,7 +41,6 @@ function keyDownHandler() {
 
       previewEntryAdditionalDetails(issueFull);
     } else if (event.key === "Escape") {
-      console.log("ecapekey");
       disableKeyboardNavigation(container);
     }
   };

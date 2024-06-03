@@ -1,5 +1,5 @@
 import { Octokit } from "@octokit/rest";
-import { fetchAllLeaderboardDatas, fetchLeaderboardDataFromRepo, fetchUsernames, pullFromSupabase } from "./data-fetching";
+import { fetchAllLeaderboardData, fetchLeaderboardDataFromRepo, fetchUsernames, pullFromSupabase } from "./data-fetching";
 import { getGitHubAccessToken } from "../getters/get-github-access-token";
 import { taskManager } from "../home";
 import { preview, previewBodyInner, titleAnchor, titleHeader } from "../rendering/render-preview-modal";
@@ -22,7 +22,7 @@ export async function renderLeaderboard() {
 
   if (!cachedEntries || Date.now() - parseInt(lastUpdate) > 1000 * 60 * 60 * 24 * 7) {
     // fetches the most up to date leaderboard data from the repo
-    entries = await fetchAllLeaderboardDatas();
+    entries = await fetchAllLeaderboardData();
 
     if (!entries) {
       return;
