@@ -1,7 +1,7 @@
-import { TaskStorageItems } from "../github-types";
+import { LeaderboardStorage } from "../github-types";
 import { OAuthToken } from "./get-github-access-token";
 
-export function getLocalStore(key: string): TaskStorageItems | OAuthToken | null {
+export function getLocalStore(key: string): LeaderboardStorage | OAuthToken | null {
   const cachedIssues = localStorage.getItem(key);
   if (cachedIssues) {
     try {
@@ -13,7 +13,7 @@ export function getLocalStore(key: string): TaskStorageItems | OAuthToken | null
   return null;
 }
 
-export function setLocalStore(key: string, value: TaskStorageItems | OAuthToken) {
+export function setLocalStore(key: string, value: LeaderboardStorage | OAuthToken) {
   // remove state from issues before saving to local storage
   localStorage[key] = JSON.stringify(value);
 }

@@ -1,16 +1,10 @@
 import { RestEndpointMethodTypes } from "@octokit/plugin-rest-endpoint-methods";
-import { TaskNoState } from "./fetch-github/preview-to-full-mapping";
+import { LeaderboardEntry } from "./rendering/display-leaderboard";
 
-export interface AvatarCache {
-  [organization: string]: string | null;
-}
+export const GITHUB_TASKS_STORAGE_KEY = "ubq-leaderboard";
 
-export const GITHUB_TASKS_STORAGE_KEY = "gitHubTasks";
-
-export type TaskStorageItems = {
-  timestamp: number;
-  tasks: TaskNoState[];
-  loggedIn: boolean;
+export type LeaderboardStorage = {
+  leaderboard: LeaderboardEntry[];
 };
 
 export type GitHubUserResponse = RestEndpointMethodTypes["users"]["getByUsername"]["response"];

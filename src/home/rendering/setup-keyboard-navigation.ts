@@ -1,6 +1,8 @@
 import { taskManager } from "../home";
 import { viewIssueDetails } from "./render-github-issues";
 
+const DATA_PREVIEW_ID = "data-preview-id";
+
 const keyDownHandlerCurried = keyDownHandler();
 const disableKeyBoardNavigationCurried = disableKeyboardNavigationCurry;
 
@@ -58,9 +60,9 @@ function keyDownHandler() {
 
         container.classList.add("keyboard-selection");
 
-        const previewId = visibleIssues[newIndex].children[0].getAttribute("data-preview-id");
+        const previewId = visibleIssues[newIndex].children[0].getAttribute(DATA_PREVIEW_ID);
 
-        const issueElement = visibleIssues.find((issue) => issue.children[0].getAttribute("data-preview-id") === previewId);
+        const issueElement = visibleIssues.find((issue) => issue.children[0].getAttribute(DATA_PREVIEW_ID) === previewId);
 
         if (issueElement) {
           const issueFull = taskManager.getTaskByPreviewId(Number(previewId)).full;
@@ -72,7 +74,7 @@ function keyDownHandler() {
     } else if (event.key === "Enter") {
       const selectedIssue = container.querySelector("#issues-container > div.selected");
       if (selectedIssue) {
-        const previewId = selectedIssue.children[0].getAttribute("data-preview-id");
+        const previewId = selectedIssue.children[0].getAttribute(DATA_PREVIEW_ID);
 
         if (previewId) {
           const issueFull = taskManager.getTaskByPreviewId(Number(previewId)).full;

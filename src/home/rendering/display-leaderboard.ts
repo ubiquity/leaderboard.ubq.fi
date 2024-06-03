@@ -4,21 +4,13 @@ import { getSupabase } from "./render-github-login-button";
 import { getGitHubAccessToken } from "../getters/get-github-access-token";
 import { Octokit } from "@octokit/rest";
 
-type SupabaseUser = { id: string; created: string; wallet_id: string };
-type LeaderboardData = { address: string; balance: number };
-type LeaderboardEntry = { address: string; username?: string; balance: number; created_at?: string };
+export type SupabaseUser = { id: string; created: string; wallet_id: string };
+export type LeaderboardData = { address: string; balance: number };
+export type LeaderboardEntry = { address: string; username?: string; balance: number; created_at?: string };
 
 export async function renderLeaderboard() {
   const container = taskManager.getContainer();
-  if (container.classList.contains("ready")) {
-    container.classList.remove("ready");
 
-    const leaderboardFetchLoader = document.createElement("div");
-    leaderboardFetchLoader.classList.add("loader");
-    container.appendChild(leaderboardFetchLoader);
-
-    container.innerHTML = "";
-  }
   const existingAddresses = new Set(Array.from(container.querySelectorAll(".issue-element-inner")).map((element) => element.getAttribute("data-preview-id")));
 
   const delay = 0;
