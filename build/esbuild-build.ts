@@ -24,7 +24,7 @@ export const esBuildContext: esbuild.BuildOptions = {
     ".json": "file",
   },
   outdir: "static/dist",
-  define: createEnvDefines(["SUPABASE_URL", "SUPABASE_ANON_KEY"], {
+  define: createEnvDefines(["SUPABASE_ACCESS_TOKEN", "SUPABASE_DB_PASSWORD", "SUPABASE_PROJECT_ID"], {
     SUPABASE_STORAGE_KEY: generateSupabaseStorageKey(),
     commitHash: execSync(`git rev-parse --short HEAD`).toString().trim(),
   }),
@@ -54,13 +54,14 @@ function createEnvDefines(environmentVariables: string[], generatedAtBuild: Reco
 }
 
 export function generateSupabaseStorageKey(): string | null {
-  const SUPABASE_URL = process.env.SUPABASE_URL;
-  if (!SUPABASE_URL) {
-    console.error("SUPABASE_URL environment variable is not set");
+  const id = process.env.SUPABASE_PROJECT_ID;
+  if (!id) {
+    console.error("SUPABASE_PROJECT_ID environment variable is not set");
     return null;
   }
+  const url = `https://${id}.supabase.co`;
 
-  const urlParts = SUPABASE_URL.split(".");
+  const urlParts = url.split(".");
   if (urlParts.length === 0) {
     console.error("Invalid SUPABASE_URL environment variable");
     return null;

@@ -1,10 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 import { toolbar } from "../ready-toolbar";
 
-declare const SUPABASE_URL: string; // @DEV: passed in at build time check build/esbuild-build.ts
-declare const SUPABASE_ANON_KEY: string; // @DEV: passed in at build time check build/esbuild-build.ts
+declare const SUPABASE_PROJECT_ID: string; // @DEV: passed in at build time check build/esbuild-build.ts
+declare const SUPABASE_DB_PASSWORD: string; // @DEV: passed in at build time check build/esbuild-build.ts
 
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const SUPABASE_URL = `https://${SUPABASE_PROJECT_ID}.supabase.co`;
+const supabase = createClient(SUPABASE_URL, SUPABASE_DB_PASSWORD);
 
 export function getSupabase() {
   return supabase;
