@@ -1,32 +1,10 @@
-# `@ubiquity/ts-template`
+# `@ubiquity/leaderboard.ubq.fi`
 
-This template repository includes support for the following:
+This is an up-to-date leaderboard of the top contributors to the Ubiquity ecosystem based on earnings from completed Devpool Directory bounties.
 
-- TypeScript
-- Environment Variables
-- Conventional Commits
-- Automatic deployment to Cloudflare Pages
+### TODO
 
-## Testing
-
-### Cypress
-
-To test with Cypress Studio UI, run
-
-```shell
-yarn cy:open
-```
-
-Otherwise to simply run the tests through the console, run
-
-```shell
-yarn cy:run
-```
-
-### Jest
-
-To start Jest tests, run
-
-```shell
-yarn test
-```
+- [ ] Pull data from Supabase instead of from static repo file
+- [ ] Improve the hunter metadata/markers displayed in the additional details modal
+- [ ] Add filters based on markers such as XP, Karma, Top n, etc.
+- [ ] Add pagination and cap displayed entries?
