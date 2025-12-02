@@ -9,8 +9,6 @@ jobs:
   deploy:
     uses: ubiquity/deno-deploy-workflow/.github/workflows/deno-deploy-reusable.yml@main
     secrets: inherit
-    env:
-      STATIC_DIR: static/dist
     with:
       project: leaderboard-ubq-fi
       preview_project: leaderboard-ubq-fi-preview
@@ -19,15 +17,12 @@ jobs:
         yarn install --frozen-lockfile
       build_command: |
         yarn build
-      env_var_keys: |
-        STATIC_DIR
       node_version: "20.x"
       deno_version: v2.x
       deployctl_version: "1.12.0"
       prod_branch: development
       include: |
         static/**
-        build/**
       exclude: |
         node_modules
         tests
