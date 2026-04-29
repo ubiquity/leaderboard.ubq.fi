@@ -1,5 +1,6 @@
 {
   "tasks": {
+    "build": "deno run -A npm:esbuild@0.25.12 static/main.ts --bundle --outdir=static/dist --sourcemap --platform=browser --loader:.png=dataurl --loader:.woff=dataurl --loader:.woff2=dataurl --loader:.eot=dataurl --loader:.ttf=dataurl --loader:.svg=dataurl",
     "serve": "deno run --allow-read --allow-net --allow-env serve.ts"
   }
 }

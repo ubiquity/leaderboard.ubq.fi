@@ -2,29 +2,24 @@ name: Deno Deploy
 
 on:
   push:
-  pull_request:
   workflow_dispatch:
 
 jobs:
   deploy:
-    uses: ubiquity/deno-deploy-workflow/.github/workflows/deno-deploy-reusable.yml@main
+    uses: ubiquity/deno-deploy-workflow/.github/workflows/deno-deploy-reusable.yml@codex/deno-2-programmatic
     with:
       project: leaderboard-ubq-fi
+      deploy_platform: deno2
       entrypoint: serve.ts
-      bun_version: 1.3.4
-      install_command: HUSKY=0 bun install
-      build_command: bun run build
-      build_env: |
-        SUPABASE_URL=$SUPABASE_URL
-        SUPABASE_ANON_KEY=$SUPABASE_ANON_KEY
-        FRONTEND_URL=https://leaderboard.ubq.fi
+      install_command: deno install
+      build_command: deno task build
       runtime_env: |
         STATIC_DIR=static
       include: |
         static/**
+      extra_paths: |
+        /smoke/path
       debug_fetch_fail: true
       required_env: |
         DENO_DEPLOY_TOKEN
-        SUPABASE_URL
-        SUPABASE_ANON_KEY
     secrets: inherit
