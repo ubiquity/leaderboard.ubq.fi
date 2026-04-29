@@ -30,8 +30,7 @@
     "open-source"
   ],
   "dependencies": {
-    "dotenv": "^16.4.4",
-    "ramda": "0.29.1"
+    "dotenv": "^16.4.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.1",

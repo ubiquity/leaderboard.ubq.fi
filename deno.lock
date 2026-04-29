@@ -40,7 +40,6 @@
     "npm:lint-staged@^15.2.2": "15.5.2",
     "npm:npm-run-all@^4.1.5": "4.1.5",
     "npm:prettier@^3.2.5": "3.8.3",
-    "npm:ramda@0.29.1": "0.29.1",
     "npm:ts-jest@29.1.2": "29.1.2_@babel+core@7.29.0_jest@29.7.0__@types+node@20.19.39_typescript@5.9.3_@types+node@20.19.39",
     "npm:tsx@^4.19.3": "4.21.0",
     "npm:typescript@^5.3.3": "5.9.3"
@@ -5042,9 +5041,6 @@
     "quick-lru@4.0.1": {
       "integrity": "sha512-ARhCpm70fzdcvNQfPoy49IaanKkTlRWF2JMzqhcJbhSFRZv7nPTvZJdcY7301IPmvW+/p0RgIWnQDLJxifsQ7g=="
     },
-    "ramda@0.29.1": {
-      "integrity": "sha512-OfxIeWzd4xdUNxlWhgFazxsA/nl3mS4/jGZI5n00uWOoSSFRhC1b6gl6xvmzUamgmqELraWp0J/qqVlXYPDPyA=="
-    },
     "react-is@18.3.1": {
       "integrity": "sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg=="
     },
@@ -6104,7 +6100,6 @@
         "npm:lint-staged@^15.2.2",
         "npm:npm-run-all@^4.1.5",
         "npm:prettier@^3.2.5",
-        "npm:ramda@0.29.1",
         "npm:ts-jest@29.1.2",
         "npm:tsx@^4.19.3",
         "npm:typescript@^5.3.3"
